@@ -1,20 +1,20 @@
 # Blog API
 
-Spring Boot ile geliştirilmiş kapsamlı blog API'si.
+A comprehensive blog API developed with Spring Boot.
 
-## Özellikler
+## Features
 
 - 🔐 JWT Authentication
-- 📝 Blog yazı yönetimi (CRUD)
-- 💬 Yorum sistemi
-- 🔒 Spring Security entegrasyonu
+- 📝 Blog post management (CRUD)
+- 💬 Comment system
+- 🔒 Spring Security integration
 - 📊 API Documentation (Swagger)
 - ✅ Unit & Integration Tests
-- 🚀 Docker desteği
+- 🚀 Docker support
 - 📈 Caching
 - 🏥 Health checks
 
-## Teknolojiler
+## Technologies
 
 - Java 17
 - Spring Boot 3.2.0
@@ -26,41 +26,41 @@ Spring Boot ile geliştirilmiş kapsamlı blog API'si.
 - JUnit 5
 - Docker
 
-## Kurulum ve Çalıştırma
+## Installation and Setup
 
-### Gereksinimler
+### Requirements
 - Java 17+
 - Maven 3.6+
 
-### Adımlar
+### Steps
 
-1. Projeyi klonlayın
-2. Dependencies yükleyin:
+1. Clone the project
+2. Install dependencies:
    ```bash
    mvn clean install
    ```
-3. Uygulamayı çalıştırın:
+3. Run the application:
    ```bash
    mvn spring-boot:run
    ```
 
-Uygulama http://localhost:8080 adresinde çalışacaktır.
+The application will run at http://localhost:8080
 
 ## API Endpoints
 
 ### Authentication
-- `POST /auth/register` - Kullanıcı kaydı
-- `POST /auth/login` - Kullanıcı girişi
+- `POST /auth/register` - User registration
+- `POST /auth/login` -  User login
 
 ### Posts
-- `GET /posts` - Tüm yazıları listele
-- `GET /posts/{id}` - Yazı detayı + yorumlar
-- `POST /posts` - Yeni yazı oluştur (auth gerekli)
-- `PUT /posts/{id}` - Yazı güncelle (auth gerekli)
-- `DELETE /posts/{id}` - Yazı sil (auth gerekli)
+- `GET /posts` - List all posts
+- `GET /posts/{id}` - Get post details + comments
+- `POST /posts` - Create new post (auth required)
+- `PUT /posts/{id}` - Update post (auth required)
+- `DELETE /posts/{id}` - Delete post (auth required)
 
 ### Comments
-- `POST /posts/{id}/comments` - Yorum ekle (auth gerekli)
+- `POST /posts/{id}/comments` - Add comment (auth required)
 
 ## API Documentation
 
@@ -88,7 +88,7 @@ mvn test -Dspring.profiles.active=test
 H2 Console: http://localhost:8080/h2-console
 - JDBC URL: jdbc:h2:mem:testdb
 - Username: sa
-- Password: (boş)
+- Password: (empty)
 
 ## Docker
 
@@ -108,9 +108,9 @@ docker-compose up
 
 http://localhost:8080/actuator/health
 
-## Örnek Kullanım
+## Usage Examples
 
-### 1. Kullanıcı Kaydı
+### 1. User Registration
 ```bash
 curl -X POST http://localhost:8080/auth/register \
   -H "Content-Type: application/json" \
@@ -121,7 +121,7 @@ curl -X POST http://localhost:8080/auth/register \
   }'
 ```
 
-### 2. Giriş
+### 2. Login
 ```bash
 curl -X POST http://localhost:8080/auth/login \
   -H "Content-Type: application/json" \
@@ -131,25 +131,23 @@ curl -X POST http://localhost:8080/auth/login \
   }'
 ```
 
-### 3. Post Oluşturma
+### 3. Create Post
 ```bash
 curl -X POST http://localhost:8080/posts \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "İlk Blog Yazım",
-    "content": "Bu benim ilk blog yazım..."
+    "title": "My First Blog Post",
+    "content": "This is my first blog post..."
   }'
 ```
 
-## Geliştirici Notları
+## Developer Notes
 
-- JWT secret production'da environment variable'dan alınmalı
-- Production'da PostgreSQL kullanılmalı
-- Logging konfigürasyonu production'a uyarlanmalı
-- Rate limiting eklenebilir
-- Email verification sistemi eklenebilir
+- JWT secret should be taken from environment variables in production
+- PostgreSQL should be used in production
+- Logging configuration should be adapted for production
+- Rate limiting can be added
+- Email verification system can be implemented
 
-## Lisans
 
-MIT
