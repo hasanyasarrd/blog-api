@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  blog-api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./logs:/app/logs
+
+  # PostgreSQL (production için)
+  # postgres:
+  #   image: postgres:15
+  #   environment:
+  #     POSTGRES_DB: blogdb
+  #     POSTGRES_USER: bloguser
+  #     POSTGRES_PASSWORD: blogpass
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:

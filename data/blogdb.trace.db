@@ -1,0 +1,40 @@
+2025-06-12 11:28:13.902097+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:29:23.557255+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:48:13.793695+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:49:09.589649+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:51:40.594637+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:57:18.397068+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:58:10.670336+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 11:58:39.249645+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 12:06:03.674799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 12:07:24.667248+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 12:08:17.470236+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-224]
+2025-06-12 15:13:45.640974+03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT \000d\000a    'POST' as ACTIVITY_TYPE,\000d\000a    p.TITLE as CONTENT,\000d\000a    u.USERNAME as [*]USER,\000d\000a    p.CREATED_AT as ACTIVITY_TIME\000d\000aFROM POSTS p\000d\000aJOIN USERS u ON p.AUTHOR_ID = u.ID\000d\000aUNION ALL\000d\000aSELECT \000d\000a    'COMMENT' as ACTIVITY_TYPE,\000d\000a    c.CONTENT as CONTENT,\000d\000a    u.USERNAME as USER,\000d\000a    c.CREATED_AT as ACTIVITY_TIME\000d\000aFROM COMMENTS c\000d\000aJOIN USERS u ON c.USER_ID = u.ID\000d\000aORDER BY ACTIVITY_TIME DESC"; expected "identifier"; SQL statement:
+SELECT 
+    'POST' as ACTIVITY_TYPE,
+    p.TITLE as CONTENT,
+    u.USERNAME as USER,
+    p.CREATED_AT as ACTIVITY_TIME
+FROM POSTS p
+JOIN USERS u ON p.AUTHOR_ID = u.ID
+UNION ALL
+SELECT 
+    'COMMENT' as ACTIVITY_TYPE,
+    c.CONTENT as CONTENT,
+    u.USERNAME as USER,
+    c.CREATED_AT as ACTIVITY_TIME
+FROM COMMENTS c
+JOIN USERS u ON c.USER_ID = u.ID
+ORDER BY ACTIVITY_TIME DESC [42001-224]
